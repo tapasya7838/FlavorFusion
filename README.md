@@ -1,2 +1,2 @@
 # FlavorFusion
-FlavorFusion - restaurant website (dummy)
+"FlavorFusion - a dummy restaurant website"
