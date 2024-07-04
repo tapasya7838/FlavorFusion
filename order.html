@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.FlavorFusion.com/order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 95%;
+            margin: auto;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Order Now!</h1>
+        <form action="order.php" method="post">
+            <label for="firstname">Firstname*</label>
+            <input type="text" name="Firstname" id="firstname" placeholder="Enter your firstname" required><br><br>
+            <label for="lastname">Lastname*</label>
+            <input type="text" name="Lastname" id="lastname" placeholder="Enter your lastname" required><br><br>
+            <label for="mail">Email*</label>
+            <input type="email" name="Email" id="mail" placeholder="Enter your email" required><br><br>
+            <label for="number">Phone Number*</label>
+            <input type="number" name="Number" id="number" placeholder="Enter your number" required><br><br>
+            <label for="order">Your Order*</label>
+            <input type="text" name="Order" id="order" placeholder="Enter your order" required><br><br>
+            <label for="payment">Mode Of Payment*</label>
+            <select id="payment" name="Payment_mode" required><br><br>
+                <option value="">Select</option>
+                <option value="cash on delivery" selected>Cash On Delivery</option>
+            </select>
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+</body>
+
+</html>

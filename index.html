@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>www.FlavorFusion.com/home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color: linear-gradient(to right, #ff4ebd, #181a28);
+      --seccolor: rgb(255 37 37 / 98%);
+      --tercolor: rgb(0 0 0 / 82%);
+    }
+
+    body {
+      margin: 0;
+      height: 100%;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-image: var(--color);
+      color: white;
+      height: 65px;
+      padding: 1em;
+      font-weight: bold;
+      font-size: 20px;
+      position: sticky;
+      top: 0px;
+    }
+
+    .logo {
+      font-size: 22px;
+    }
+
+    .logo a {
+      color: white;
+    }
+
+    .menu li a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .menu li a:hover {
+      color: rgb(254, 165, 165);
+      cursor: pointer;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu>li {
+      margin: 0 1rem;
+      overflow: hidden;
+    }
+
+    .menu-button-container {
+      display: none;
+      height: 100%;
+      width: 30px;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu-button,
+    .menu-button::before,
+    .menu-button::after {
+      display: block;
+      background-color: #fff;
+      position: absolute;
+      height: 6px;
+      width: 32px;
+      border-radius: 3px;
+    }
+
+    .menu-button::before {
+      content: '';
+      margin-top: -8px;
+    }
+
+    .menu-button::after {
+      content: '';
+      margin-top: 8px;
+    }
+
+    #menu-toggle:checked+.menu-button-container .menu-button::before {
+      margin-top: 0px;
+      transform: rotate(45deg);
+    }
+
+    #menu-toggle:checked+.menu-button-container .menu-button {
+      background: rgba(255, 255, 255, 0);
+    }
+
+    #menu-toggle:checked+.menu-button-container .menu-button::after {
+      margin-top: 0px;
+      transform: rotate(-45deg);
+    }
+
+    .section1 {
+      min-height: 85vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+
+    .section1 div {
+      max-width: 60%;
+      min-height: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid white;
+      border-radius: 9px;
+      background-color: rgb(0 0 0 / 35%);
+      color: white;
+      padding: 8px;
+    }
+
+    .section1 div p {
+      font-size: 1.3em;
+      text-align: center;
+    }
+
+    .section1 main {
+      display: flex;
+    }
+
+    .section1 main h1 {
+      font-size: 1.9em;
+    }
+
+    .section1 div button {
+      background-color: var(--seccolor);
+      padding: 12px;
+      font-size: 18px;
+      border: 2px solid white;
+      border-radius: 25px;
+    }
+
+    .section1 div button a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .section1 div button:hover {
+      background-color: rgb(160, 50, 50);
+    }
+
+    .section2 {
+      width: 100vw;
+      min-height: 40vh;
+      margin-top: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .section2 .call-us {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 40vh;
+      width: 38vh;
+      text-align: center;
+      border-radius: 6px;
+      background-color: var(--seccolor);
+      color: white;
+    }
+
+    .section2 img {
+      height: 29vh;
+      width: 39vh;
+      border-radius: 6px;
+    }
+
+    .section2 .img,
+    .section2 .call-us {
+      margin: 6px;
+    }
+
+    .call-us button {
+      padding: 6px;
+      border: 2px solid white;
+      border-radius: 6px;
+      background-color: #4a470b;
+    }
+
+    .call-us button:hover {
+      background-color: #666326;
+    }
+
+    .call-us button a {
+      color: white;
+      text-decoration: none;
+      font-size: 10px;
+    }
+
+    .call-us p a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .section3 {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 40vh;
+      width: 100vw;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    .section3 img {
+      height: 34vh;
+      width: 34vh;
+      border: 3px solid rgb(80, 77, 77);
+      border-radius: 50%;
+    }
+
+    .section3 div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section4 {
+      display: flex;
+      flex-direction: column;
+      min-height: 40vh;
+      align-items: center;
+      justify-content: center;
+      background-image: var(--color);
+      margin-top: 60px;
+    }
+
+    .section4 h3 {
+      color: white;
+    }
+
+    .featured {
+      display: flex;
+      min-height: 40vh;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100vw;
+    }
+
+    .featured div img {
+      height: 39vh;
+      width: 39vh;
+      border-radius: 50%;
+    }
+
+    .featured div p {
+      text-align: center;
+      color: rgb(121, 10, 10);
+      font-weight: bold;
+    }
+
+    .featured div .price {
+      color: rgb(13, 247, 13);
+      font-weight: bold;
+    }
+
+    .breakfast,
+    .lunch,
+    .dinner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      min-width: 20vw;
+      min-height: 40vh;
+      border-radius: 8px;
+      background-color: rgba(244, 235, 235, 0.126);
+      padding: 9px;
+      margin: 6px;
+    }
+
+    footer {
+      background-color: var(--tercolor);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      margin-bottom: 20px;
+    }
+
+    .social-media a {
+      color: white;
+      margin: 0 10px;
+    }
+
+    .opening-hours {
+      margin-top: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .menu-button-container {
+        display: flex;
+      }
+
+      .menu {
+        position: absolute;
+        top: 0;
+        margin-top: 50px;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #menu-toggle~.menu li {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      #menu-toggle:checked~.menu li {
+        border: 1px solid #9f9a9a;
+        height: 2.5em;
+        padding: 0.5em;
+      }
+
+      .menu>li {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0.5em 0;
+        width: 100%;
+        background-image: var(--color);
+      }
+
+      .menu>li:not(:last-child) {
+        border-bottom: 1px solid #444;
+
+      }
+    }
+
+    @media screen and (max-width: 607px) and (min-width: 290px) {
+
+      .section1 div {
+        padding: 6px;
+        min-width: 100%;
+      }
+
+      .section1 div p {
+        font-size: 1.1em;
+      }
+
+      .section1 main h1 {
+        font-size: 1.5em;
+      }
+
+      .section1 div button {
+        padding: 10px;
+        font-size: 15px;
+      }
+
+    }
+
+    @media screen and (max-width: 289px) {
+
+      .section1 div {
+        padding: 4px;
+        min-width: 100%;
+      }
+
+      .section1 div p {
+        font-size: 1em;
+      }
+
+      .section1 main h1 {
+        font-size: 1.3em;
+      }
+
+      .section1 div button {
+        padding: 8px;
+        font-size: 13px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">FlavorFusion&nbsp;&nbsp;<a
+        href="https://www.google.com/maps/search/flavor+fusion/@28.5408469,77.015163,11z?entry=ttu"><i
+          class="fa-solid fa-location-dot"></i></a></div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class="menu-button-container" for="menu-toggle">
+      <div class="menu-button"></div>
+    </label>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+  <section class="section1">
+    <div>
+      <p>For the love of delicious food</p>
+      <main class="welcome">
+        <h1>Welcome To&nbsp;</h1>
+        <h1 class="auto"></h1>
+      </main>
+      <p>A good restaurant is like a vacation; it transports you, it becomes a lot more than just about the food.</p>
+      <button><a href="order.html">Order Now!</a></button>
+    </div>
+  </section>
+  <section class="section2">
+    <div class="img img1"><img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5lmfUWGIlloYfGNZDXthW2GIV-KqIC9mloA&usqp=CAU"
+        alt="foodpic"></div>
+    <div class="call-us">
+      <p>We Cook Delicious</p>
+      <div>
+        <p>you can call us on:</p>
+        <p>+ 1234 567 890 <a href="tel:9354867727"><i class="fa fa-phone"></i></a></p>
+      </div>
+      <p>Or</p>
+      <button><a href="order.html">Order Now!</a></button>
+    </div>
+    <div class="img img2"><img
+        src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2022/04/19185157/vinicius-benedit-1GEAA8q3wk-unsplash-1350x900.jpg"
+        alt="foodpic2">
+    </div>
+  </section>
+  <section class="section3">
+    <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4fWEaPQR9JGT2I3zLjsklpzUVQhajPkBTFw&usqp=CAU"
+        alt="breakfast">
+      <h3>Breakfast</h3>
+    </div>
+    <div><img
+        src="https://images.unsplash.com/photo-1623123726825-6e3487e7a15e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="lunch">
+      <h3>Lunch</h3>
+    </div>
+    <div><img src="https://static.toiimg.com/thumb/msid-77028654,width-1280,height-720,resizemode-4/77028654.jpg"
+        alt="">
+      <h3>Dinner</h3>
+    </div>
+    <div><img
+        src="https://img.freepik.com/premium-photo/exquisite-chocolate-dessert-five-star-restaurant-generative-ia_209190-10426.jpg"
+        alt="">
+      <h3>Desserts</h3>
+    </div>
+  </section>
+  <section class="section4">
+    <h3>Weekly Featured Food</h3>
+    <div class="featured">
+      <div class="breakfast">
+        <p>Breakfast</p>
+        <img src="https://qph.cf2.quoracdn.net/main-qimg-cd332d44ba3e9016baece20d41438311-lq" alt="">
+        <p>Saffron Risotto<br><br>rice, saffron, butter, stock,<br>white wine and cheese</p>
+        <p class="price">$12.4</p>
+      </div>
+      <div class="lunch">
+        <p>Lunch</p>
+        <img
+          src="https://www.allrecipes.com/thmb/bUeQAJpO35-eP-cDDixyVCGM820=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/1118819-c354db5085514f2282022d891ec97f27.jpg"
+          alt="">
+        <p>Donair Dash<br><br>spiced ground beef, baked, and then,<br>sliced for an authentic Halifax meat</p>
+        <p class="price">$8.5</p>
+      </div>
+      <div class="dinner">
+        <p>Dinner</p>
+        <img src="https://www.thehealthymaven.com/wp-content/uploads/2015/09/Sweet-potato-turkey-chili-FI.jpg" alt="">
+        <p>Sweet Turkey Chilli<br><br>lean ground turkey,<br>kidney beans and corn</p>
+        <p class="price">$10.6</p>
+      </div>
+
+    </div>
+  </section>
+  <footer>
+    <div class="footer-content">
+      <h3>FlavorFusion</h3>
+      <p>123 Main Street, Delhi, India</p>
+      <p>Phone: 123-456-7890</p>
+      <p>Email: info@flavorfusion.com</p>
+    </div>
+    <div class="social-media">
+      <a href="#" target="_blank">Facebook</a>
+      <a href="#" target="_blank">Instagram</a>
+      <a href="#" target="_blank">Twitter</a>
+    </div>
+    <div class="opening-hours">
+      <h4>Opening Hours</h4>
+      <p>Mon - Fri: 9am - 10pm</p>
+      <p>Sat - Sun: 10am - 11pm</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    var typed = new Typed(".auto", {
+      strings: ["FlavorFusion"],
+      typeSpeed: 150,
+      backSpeed: 150,
+      loop: true
+    })
+  </script>
+</body>
+
+</html>
